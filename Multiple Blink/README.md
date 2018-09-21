@@ -1,22 +1,8 @@
-# Multiple Blink
-Now that we have blinked at least 1 LED, what about blinking multiple LEDS at the same time? The minimum that you need to develop is blinking at least two LEDs at two different rates. Although I am not going to give you a speed, you should probably pick a rate which is visible to a standard human. I really hope that you take this further and perform some of the extra work for this part of the lab exercise.
+## How To Use The Code
+To use the code simply program it onto the correct device and give the device power. This will have the LEDs blink at a set rate. The rate can easily be changed by changing the value of led1Speed and led2Speed in the defines. The value should be large enough to have a visible effect (more than 5000) and smaller than 65536, since this is the cap of an unisigned int of size 16 bits. 
 
+## MSP430G2
+My multi-blink program is the most complex of them all yet it is still fairly simple. Like all the other programs the first step in the code is to configure all the ports to the correct configurations. This configuration is the same as all the other msp430g2 configurations except buttonblink, since buttonblink has to configure for the button input aswell. The multiblink program like all the others utilizes and infinite loop. Inside this loop two counters are incremented (one for each LED) then when one of these counters reach a certain number (determined by the ledSpeed variables) that LED is flipped on or off and that LEDs counter is reset. Then the same happens to the other eventually and this will happen until the microcontroller is no longer giving power.
 
-# YOU NEED TO CREATE THE FOLLOWING FOLDERS
-* MSP430G2553
-* MSP(FILL IN WITH WHAT YOU ARE USING)
-
-## README
-Remember to replace this README with your README once you are ready to submit. I would recommend either making a copy of this file or taking a screen shot. There might be a copy of all of these README's in a folder on the top level depending on the exercise.
-
-## Extra Work
-When you take a look at the development boards, you are limited to what is built into the platform.
-
-### Even More LEDs
-Since up to this point you should have hopefully noticed that you are simply just controlling each pin on your processor. So... what is keeping you from putting an LED on each pin? Can you actually control the speed of each of these LEDs?
-
-### Patterned Lights
-If you can control a ton of LEDs, what is keeping you from having a little fun? Why not try and make something like a moving face or other moving object in lights. *CAUTION* I would only do this if you have finished the rest of the lab.
-
-### UART Pattern Control
-If you have been using UART, could you set which LEDs are on or off based off some UART command? Would you want to send an Array over UART such as [1 0 1 0] or would you want to send a byte that corresponds to the status? Can you not only say which LEDs are on, but also tell them to blink at a particular rate if they were on (so LED1 Blink every 100ms)?
+## MSP430FR2311
+The only changes from the msp430G2 program to this is that the port conifugration was changed to accomoaded the different microcontroller. Other than this the code is the exact same.
