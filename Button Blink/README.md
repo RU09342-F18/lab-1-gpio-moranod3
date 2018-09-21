@@ -1,18 +1,8 @@
-# Button Blink
-Now that you have looked at blinking the LED from some built in delay, but what if we wanted to control the state of the LED by a button? You may think "Why would I need a Microcontroller to perform the job of a switch?". And that is where you come in. The bare minimum for this part of the lab is to essentially replicate a switch with your development board.
+## How To Use The Code
+To use the code simply program it onto the correct device and give the device power.
 
-# YOU NEED TO CREATE THE FOLLOWING FOLDERS
-* MSP430G2553
-* MSPFR2311
+## MSP43G2
+My buttonBlink program for the msp430G2 is very simple. The first line in the main function simply turns of the watch dog timer The next few lines are used to set-up the GPIO ports. The lines of code set ports 1.0 and 1.6, which are the LED ports, direction to output. The next line sets port 1.3 to a pull-up resistor. An infinite loop is then initiated using an empty for loop. Inside the infinite loop there is an if statement that checks to see if the button is pressed and if there is an output. If these conditions are met port 1.0 and 1.6 has its values flipped via n xor equation. This changes the LEDs on or off. Then finally the program delays for 250,000 clock cycles. The delay is to prevent button bouncing from causing issues. After the delay the if statement is completed and the program restarts from the begining of the infinite loop.
 
-## README
-Remember to replace this README with your README once you are ready to submit. I would recommend either making a copy of this file or taking a screen shot. There might be a copy of all of these README's in a folder on the top level depending on the exercise. Make sure you talk about how your button is configured (momentary or continuous. Normally open or closed. Does the button press indicate when the LED should be on or off.)
-
-## Extra Work
-What can we do to make this a little bit more worthy of needing a microcontroller.
-
-### Button Based Speed Control
-Much like the UART controlled speed, what if you could cycle between speeds based on a button press? The speed could progress through a cycle of "Off-Slow-Medium-Fast" looping back when you hit the end.
-
-### Color Change
-What if upon a button press, the LED which was blinking changed. Some of the development boards contain two LEDs, so you could swap between a Red and a Green LED.
+## MSP430FR2311
+The msp430FR2311 program is nearly identical to the msp430G2 code. The only differences are that I had it blink 1 LED instead of 2, there is a line of code that is needed to turn on the GPIO functionallity for the FR2311 that was added, and the ports for the buttons needed to be changed to accomodate the different board.
