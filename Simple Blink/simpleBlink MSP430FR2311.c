@@ -5,9 +5,9 @@ void main() {
     WDTCTL = WDTPW | WDTHOLD;   // don't touch it, it's for the watchdog stuff
     PM5CTL0 &= ~LOCKLPM5;
 
-    P1DIR |= BIT0; // set P1DIR with P0 and P6 to high (1)
+    P1DIR |= BIT0; // set P1DIR with P0 to high (1)
 
-    P1OUT = BIT1; // set port1.1 to output
+    P1OUT = BIT0; // set port1.0 to output
 
     for (;;) {
             P1OUT ^= (BIT0); // flip bit0 in output port
